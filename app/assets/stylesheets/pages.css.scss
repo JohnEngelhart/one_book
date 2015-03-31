@@ -1,3 +1,156 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.socialBar {
+
+  text-align: center;
+}
+
+.socialIcon {
+  position: relative;
+}
+
+.socialIcon:before {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none !important;
+}
+
+.socialIcon.circle {
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border: 0;
+  border-radius: 100%;
+  display: inline-block;
+  font-size: 1.25em;
+  height: 2.25em;
+  left: 0;
+  line-height: 2.25em;
+  text-align: center;
+  text-decoration: none;
+  top: 0;
+  width: 2.25em;
+}
+
+.socialIcon.circle:hover {
+  top: -0.2em;
+}
+
+
+
+.socialIcon.circle.fa-twitter {
+  background: #70aecd;
+  color: white;
+}
+
+.socialIcon.circle.fa-twitter:hover {
+  background: #7fb7d2;
+}
+
+.socialIcon.circle.fa-facebook {
+  background: #7490c3;
+  color: white;
+}
+
+.socialIcon.circle.fa-facebook:hover {
+  background: #829bc9;
+}
+
+.socialIcon.circle.fa-instagram {
+  background: #517fa4;
+  color: white;
+}
+
+.socialIcon.circle.fa-instagram:hover {
+  background: #869da4;
+}
+
+.socialIcon.featured {
+  cursor: default;
+  display: block;
+  margin: 0 0 1.5em 0;
+  opacity: 0.35;
+  text-align: center;
+}
+
+.socialIcon.featured:before {
+  font-size: 5em;
+  line-height: 1em;
+}
+
+.socialIcon > .label {
+  display: none;
+}
+
+
+ul.socialIcons {
+  cursor: default;
+  margin-bottom: 0px;
+}
+
+ul.socialIcons li {
+  display: inline-block;
+  line-height: 1em;
+  padding-left: 0.5em;
+}
+
+ul.socialIcons li:first-child {
+  padding-left: 0;
+}
+
+ul.featured-socialIcons {
+  cursor: default;
+  margin: -0.75em 0 0 0;
+  opacity: 0.35;
+  overflow: hidden;
+  position: relative;
+}
+
+ul.featured-socialIcons li {
+  display: block;
+  float: left;
+  text-align: center;
+  width: 50%;
+}
+
+ul.featured-socialIcons li .icon {
+  display: inline-block;
+  font-size: 6.25em;
+  height: 1.25em;
+  line-height: 1.25em;
+  width: 1em;
+}
+
+ul.socialButtons {
+  cursor: default;
+}
+
+ul.socialButtons:last-child {
+  margin-bottom: 0;
+}
+
+ul.socialButtons li {
+  display: inline-block;
+  padding: 0 0 0 1.5em;
+}
+
+ul.socialButtons li:first-child {
+  padding: 0;
+}
+
+ul.socialButtons.vertical li {
+  display: block;
+  padding: 1.5em 0 0 0;
+}
+
+ul.socialButtons.vertical li:first-child {
+  padding: 0;
+}
