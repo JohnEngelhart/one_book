@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/main'
+
   get 'main_screen/mainScreen'
 
   get 'landings/index'
