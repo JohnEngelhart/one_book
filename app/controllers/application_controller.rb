@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  protected
+  protected  
 
   #->Prelang (user_login:devise)
   def configure_permitted_parameters

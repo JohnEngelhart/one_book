@@ -10,6 +10,19 @@
 
 <h1>Pages#main</h1>
 <p>Find me in app/views/pages/main.html.erb</p>
+<% config = {
+      consumer_key: 'pAdvQqUYFlZxRDekqgKOQhg39',
+      consumer_secret: 'vTsUtzEmK83jXr0cTR7OvREOL7R3ATVhfyptbCpscvCkKbBIam'
+    }
+
+    client = Twitter::REST::Client.new(config)
+    rt = client.search("roosterteeth").take(5) %>
+
+<ul>
+  <% rt.each do |tweet| %>
+  <li><%= tweet.text %></li>
+  <% end %>
+</ul>
 
 <div class="row">
   <div class="col-md-4 text-center">
