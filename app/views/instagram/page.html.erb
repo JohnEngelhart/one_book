@@ -1,0 +1,12 @@
+<h1>Instagram#page</h1>
+<p>Find me in app/views/instagram/page.html.erb</p>
+
+
+
+<div class="instagram">
+    <% @instagram.each do |instagram| %>
+      <div class="singleInstagram">
+        <%= image_tag instagram.images.standard_resolution.url %>
+      </div>
+    <% end %>
+</div>

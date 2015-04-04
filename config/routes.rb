@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'instagram/page'
+
   get 'pages/main'
 
   get 'main_screen/mainScreen'
