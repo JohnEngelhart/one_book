@@ -16,7 +16,10 @@
     }
 
     client = Twitter::REST::Client.new(config)
-    users = current_user.twitterUsers.split(",")
+    users = ["elonmusk"]
+    if current_user.twitterUsers != nil
+      users = current_user.twitterUsers.split(",")
+    end
     twitter_feed = users.map {|u| client.user_timeline(u, count: 10)} %>
 
 <div class="row">
