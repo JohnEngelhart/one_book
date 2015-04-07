@@ -16,8 +16,8 @@
     }
 
     client = Twitter::REST::Client.new(config)
-    user1 = "RoosterTeeth"
-    rt = client.user_timeline(user1).take(5) %>
+    users = current_user.twitterUsers.split(",")
+    twitter_feed = users.map {|u| client.user_timeline(u, count: 10)} %>
 
 <div class="row">
   <div class="col-md-4 text-center">
@@ -25,8 +25,10 @@
     </div>
     <div class="container-fluid">
       <h4>Twitter</h4>
-        <% rt.each do |tweet| %>
-        <h6><%= "@"+user1+":"+tweet.text %></h6>
+        <% twitter_feed.each do |tf| %>
+          <% tf.each do |tweet| %>
+            <h6><%= "@"+users[twitter_feed.index tf]+":"+tweet.text %></h6>
+          <% end %>
         <% end %>
     </div>
   </div>
