@@ -16,13 +16,8 @@
     }
 
     client = Twitter::REST::Client.new(config)
-    rt = client.search("roosterteeth").take(5) %>
-
-<ul>
-  <% rt.each do |tweet| %>
-  <li><%= tweet.text %></li>
-  <% end %>
-</ul>
+    user1 = "RoosterTeeth"
+    rt = client.user_timeline(user1).take(5) %>
 
 <div class="row">
   <div class="col-md-4 text-center">
@@ -30,7 +25,9 @@
     </div>
     <div class="container-fluid">
       <h4>Twitter</h4>
-      <h2>A hole bunch of text will go here</h2>
+        <% rt.each do |tweet| %>
+        <h6><%= "@"+user1+":"+tweet.text %></h6>
+        <% end %>
     </div>
   </div>
   <div class="col-md-4 text-center">
@@ -38,7 +35,7 @@
     </div>
     <div class="container-fluid">
       <h4>Instagram</h4>
-      <h2>A hole bunch of text will go here</h2>
+      <h2>A whole bunch of text will go here</h2>
     </div>
   </div>
   <div class="col-md-4 text-center">
@@ -47,7 +44,7 @@
 
     <div class="container-fluid">
       <h4>Facebook</h4>
-      <h2>A hole bunch of text will go here</h2>
+      <h2>A whole bunch of text will go here</h2>
     </div>
   </div>
 </div>
