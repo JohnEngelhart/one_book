@@ -20,7 +20,16 @@
     if current_user.twitterUsers != nil
       users = current_user.twitterUsers.split(",")
     end
-    twitter_feed = users.map {|u| client.user_timeline(u, count: 10)} %>
+    twitter_feed = users.map {|u| client.user_timeline(u, count: 10)} 
+    tweetList = []
+    twitter_feed.each do |tf|
+      tf.each do |tweet|
+        tweetList.push(tweet)
+      end 
+    end 
+
+    sortedTweetList = tweetList.sort { |x, y| y.created_at.to_datetime <=> x.created_at.to_datetime}
+    %>
 
 <div class="row">
   <div class="col-md-4 text-center">
@@ -28,11 +37,9 @@
     </div>
     <div class="container-fluid">
       <h4>Twitter</h4>
-        <% twitter_feed.each do |tf| %>
-          <% tf.each do |tweet| %>
-            <h6><%= "@"+users[twitter_feed.index tf]+":"+tweet.text %></h6>
-          <% end %>
-        <% end %>
+      <% sortedTweetList.each do |tweet| %>
+          <h6><%= "@"+tweet.user.screen_name+":"+tweet.text %></h6>
+      <% end %>
     </div>
   </div>
   <div class="col-md-4 text-center">
