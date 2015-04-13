@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'tweetstream'
 
+gem 'rest-client', '~>1.7.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record

@@ -1,6 +1,27 @@
 class PagesController < ApplicationController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+
+
+
+  def main
+    @instagramName = params[:instagramName]
+    if @instagramName != nil && @instagramName != ""
+      @instagramURL = "https://api.instagram.com/v1/users/search?q=#{@instagramName}&client_id=b5cdd02ab8514f4a822fd3f28dd284b7"
+      @instagramHash = RestClient.get @instagramURL
+      @instagramID = JSON.parse(@instagramHash)['data'].map { |result| result['id'] }
+      @myname = @instagramID[0].to_s
+      @instagram = Instagram.user_recent_media(@myname, {:count => 10})
+      puts @instagram
+      return @instagram
+      redirect_to("")
+    end
+  end
+
+  def instagramHelper
+
+  end
+
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
