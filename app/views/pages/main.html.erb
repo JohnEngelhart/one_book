@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<div class="socialBar">
+  <ul class="socialIcons">
+    <li><a href="#" class="socialIcon circle fa-twitter"><span class="label">Twitter</span></a></li>
+    <li><a href="https://www.facebook.com/" rel="me" target="_blank" class="socialIcon circle fa-facebook"><span class="label">Facebook</span></a></li>
+    <li><a href="/instagram/page" class="socialIcon circle fa-instagram"><span class="label">instagram</span></a></li>
+  </ul>
+</div>
+
+<h1>Pages#main</h1>
+<p>Find me in app/views/pages/main.html.erb</p>
+<% config = {
+      consumer_key: 'pAdvQqUYFlZxRDekqgKOQhg39',
+      consumer_secret: 'vTsUtzEmK83jXr0cTR7OvREOL7R3ATVhfyptbCpscvCkKbBIam'
+    }
+
+    client = Twitter::REST::Client.new(config)
+    users = ["elonmusk"]
+    if current_user.twitterUsers != nil
+      users = current_user.twitterUsers.split(",")
+    end
+    twitter_feed = users.map {|u| client.user_timeline(u, count: 10)} 
+    tweetList = []
+    twitter_feed.each do |tf|
+      tf.each do |tweet|
+        tweetList.push(tweet)
+      end 
+    end 
+
+    sortedTweetList = tweetList.sort { |x, y| y.created_at.to_datetime <=> x.created_at.to_datetime}
+    %>
+
+<div class="row">
+  <div class="col-md-4 text-center">
+    <div class="oneThirdSocialIcon socialIcon fa-twitter">
+    </div>
+    <div class="container-fluid">
+      <h4>Twitter</h4>
+      <% sortedTweetList.each do |tweet| %>
+          <h6><%= "@"+tweet.user.screen_name+":"+tweet.text %></h6>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-4 text-center">
+    <div class="oneThirdSocialIcon socialIcon fa-instagram">
+    </div>
+    <div class="container-fluid">
+      <h4>Instagram</h4>
+      <h2>A whole bunch of text will go here</h2>
+      <%= form_tag("", method: "get") do %>
+          <%= label_tag(:instagramName, "Search for:") %>
+          <%= text_field_tag(:instagramName) %>
+          <%= submit_tag("Search") %>
+      <% end %>
+      <div class="instagram">
+        <% if @instagram == nil %>
+        <% else %>
+            <% @instagram.each do |instagram| %>
+                <div class="singleInstagram">
+                  <%= image_tag instagram.images.standard_resolution.url %>
+                </div>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 text-center">
+    <div class="oneThirdSocialIcon socialIcon fa-facebook">
+    </div>
+
+    <div class="container-fluid">
+      <h4>Facebook</h4>
+      <h2>A whole bunch of text will go here</h2>
+    </div>
+  </div>
+</div>
+
+

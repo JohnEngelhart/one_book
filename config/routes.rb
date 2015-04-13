@@ -1,14 +1,25 @@
 Rails.application.routes.draw do
+  get 'instagram/page'
+
+  get 'pages/instagramHelper'
+
+  get 'pages/main'
+
   get 'main_screen/mainScreen'
 
   get 'landings/index'
+
+  authenticated :user do
+    root :to => 'pages#main', :as => :authenticated_root
+  end
+  root :to => redirect('login')
 
   devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords"}, skip: [:sessions, :registrations]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'landings#index'
+  # root 'landings#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
