@@ -35,11 +35,19 @@
   <div class="col-md-4 text-center">
     <div class="oneThirdSocialIcon socialIcon fa-twitter">
     </div>
+
     <div class="container-fluid">
       <h4>Twitter</h4>
-      <% sortedTweetList.each do |tweet| %>
+
+      <article>
+        <input type="checkbox" id="read_more" role="button">
+        <label for="read_more" onclick=""><span>Expand</span><span>Hide</span></label>
+        <section>
+        <% sortedTweetList.each do |tweet| %>
           <h6><%= "@"+tweet.user.screen_name+":"+tweet.text %></h6>
       <% end %>
+        </section>
+      </article>
     </div>
   </div>
 
@@ -48,7 +56,11 @@
     </div>
     <div class="container-fluid">
       <h4>Instagram</h4>
-      <h2>A whole bunch of text will go here</h2>
+
+      <article1>
+        <input type="checkbox" id="read_more1" role="button">
+        <label for="read_more1" onclick=""><span>Expand</span><span>Hide</span></label>
+        <section>
       <%= form_tag("", method: "get") do %>
           <%= label_tag(:instagramName, "Search for:") %>
           <%= text_field_tag(:instagramName) %>
@@ -64,8 +76,12 @@
             <% end %>
         <% end %>
       </div>
+        </section>
+      </article1>
+
     </div>
   </div>
+
 
   <div class="col-md-4 text-center">
     <div class="oneThirdSocialIcon socialIcon fa-facebook">
@@ -73,7 +89,14 @@
 
     <div class="container-fluid">
       <h4>Facebook</h4>
+      <article2>
+        <input type="checkbox" id="read_more2" role="button">
+        <label for="read_more2" onclick=""><span>Expand</span><span>Hide</span></label>
+        <section>
       <h2>A whole bunch of text will go here</h2>
+
+         </section>
+        </article2>
     </div>
   </div>
 </div>
