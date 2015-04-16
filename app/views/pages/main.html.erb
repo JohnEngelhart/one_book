@@ -10,6 +10,7 @@
 
 <h1>Pages#main</h1>
 <p>Find me in app/views/pages/main.html.erb</p>
+
 <% config = {
       consumer_key: 'pAdvQqUYFlZxRDekqgKOQhg39',
       consumer_secret: 'vTsUtzEmK83jXr0cTR7OvREOL7R3ATVhfyptbCpscvCkKbBIam'
@@ -20,13 +21,13 @@
     if current_user.twitterUsers != nil
       users = current_user.twitterUsers.split(",")
     end
-    twitter_feed = users.map {|u| client.user_timeline(u, count: 10)} 
+    twitter_feed = users.map {|u| client.user_timeline(u, count: 10)}
     tweetList = []
     twitter_feed.each do |tf|
       tf.each do |tweet|
         tweetList.push(tweet)
-      end 
-    end 
+      end
+    end
 
     sortedTweetList = tweetList.sort { |x, y| y.created_at.to_datetime <=> x.created_at.to_datetime}
     %>
@@ -93,7 +94,29 @@
         <input type="checkbox" id="read_more2" role="button">
         <label for="read_more2" onclick=""><span>Expand</span><span>Hide</span></label>
         <section>
-      <h2>A whole bunch of text will go here</h2>
+          <% if @facebookuser %>
+              <%= image_tag @facebookuser['picture']['data']['url'].to_s %>
+              <%= @facebookuser['name'] %>
+              <br/>
+              <div class="span5" style="margin-top: 20px">
+                <h2>Feeds</h2>
+                <table class="table table-striped">
+                  <tr>
+                    <th>Story</th>
+                    <th>created time</th>
+                  </tr>
+                  <% @feed.each do |f| %>
+                      <tr>
+                        <td><%= f["story"] %></td>
+                        <td><%= f["created_time"] %></td>
+                      </tr>
+                  <% end %>
+                </table>
+              </div>
+
+          <% else %>
+              <%= link_to "Facebook Login", '/auth/facebook' %>
+          <% end %>
 
          </section>
         </article2>
