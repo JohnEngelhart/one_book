@@ -56,6 +56,7 @@ gem 'bootstrap-sass-extras'
 gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "koala", "~> 1.10.0rc"
 gem 'tzinfo-data'
 gem 'validates_formatting_of'
 

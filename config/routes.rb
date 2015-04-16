@@ -9,6 +9,11 @@ Rails.application.routes.draw do
 
   get 'landings/index'
 
+  #root to: 'users#index', via: :get
+  get 'auth/facebook', as: "auth_provider"
+  get 'auth/facebook/callback', to: 'pages#main'
+  #get 'auth/facebook/callback', to: 'pages#main'
+
   authenticated :user do
     root :to => 'pages#main', :as => :authenticated_root
   end
