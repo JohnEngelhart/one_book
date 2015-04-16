@@ -12,10 +12,10 @@
 }
 
 .instagram{
-  height: 100px;
-  width: 100px;
+  height: auto;
+  width: auto;
 }
 
 .instagram img:hover {
-  -webkit-transform: scale(2,2);
+  -webkit-transform: scale(1.5,1.5);
 }
