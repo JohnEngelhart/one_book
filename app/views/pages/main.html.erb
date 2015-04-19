@@ -69,10 +69,11 @@
       <% end %>
       <div class="instagram">
         <% if @instagram == nil %>
+             unable to acccess private account
         <% else %>
             <% @instagram.each do |instagram| %>
                 <div class="singleInstagram">
-                  <%= image_tag instagram.images.standard_resolution.url %>
+                    <%= image_tag instagram.images.standard_resolution.url %>
                 </div>
             <% end %>
         <% end %>
