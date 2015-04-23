@@ -164,11 +164,6 @@ ul.socialButtons.vertical li:first-child {
 
 
 
-
-
-
-
-
 * {
   margin: 0;
   padding: 0;
@@ -199,23 +194,13 @@ body:after { clear: both }
 
 p { margin-bottom: 1.3rem }
 
-article {
-  margin-bottom: 3rem;
-  position: relative;
-  *zoom: 1;
-}
+
 
 article:before, article:after {
   content: "";
   display: table;
 }
 
-article:after { clear: both }
-
-article figure {
-  float: left;
-  width: 32.5%;
-}
 
 article section:first-of-type {
   float: right;
@@ -235,7 +220,8 @@ section {
   transition: .125s linear;
 }
 
-input[type=checkbox] {
+
+input[type=button] {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -248,7 +234,7 @@ input[type=checkbox] {
 
 [for="read_more"] {
   position: absolute;
-  bottom: -3rem;
+  bottom: -5rem;
   left: 10px;
   width: 100%;
   text-align: center;
@@ -271,22 +257,6 @@ input[type=checkbox]:checked ~ section {
   visibility: visible;
   width: 100%;
 }
-
-input[type=checkbox]:checked ~ figure { width: 100% }
-
-input[type=checkbox]:checked ~ [for="read_more"] span:first-of-type {
-  display: none;
-  visibility: hidden;
-}
-
-input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
-  display: block;
-  visibility: visible;
-}
-
-
-
-
 
 
 
@@ -360,7 +330,7 @@ section {
   transition: .125s linear;
 }
 
-input[type=checkbox] {
+input[type=button] {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -369,11 +339,12 @@ input[type=checkbox] {
   overflow: hidden;
   padding: 0;
   position: absolute;
+  visibility: hidden;
 }
 
 [for="read_more1"] {
   position: absolute;
-  bottom: -3rem;
+  bottom: -5rem;
   left: -10px;
   width: 100%;
   text-align: center;
@@ -390,27 +361,6 @@ input[type=checkbox] {
   display: none;
   visibility: hidden;
 }
-
-input[type=checkbox]:checked ~ section {
-  display: block;
-  visibility: visible;
-  width: 100%;
-}
-
-input[type=checkbox]:checked ~ figure { width: 100% }
-
-input[type=checkbox]:checked ~ [for="read_more1"] span:first-of-type {
-  display: none;
-  visibility: hidden;
-}
-
-input[type=checkbox]:checked ~ [for="read_more1"] span:last-of-type {
-  display: block;
-  visibility: visible;
-}
-
-
-
 
 
 
@@ -491,7 +441,7 @@ section {
   transition: .125s linear;
 }
 
-input[type=checkbox] {
+input[type=button] {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -504,7 +454,7 @@ input[type=checkbox] {
 
 [for="read_more2"] {
   position: absolute;
-  bottom: -3rem;
+  bottom: -5rem;
   left: 0;
   width: 100%;
   text-align: center;
@@ -521,23 +471,4 @@ input[type=checkbox] {
   display: none;
   visibility: hidden;
 }
-
-input[type=checkbox]:checked ~ section {
-  display: block;
-  visibility: visible;
-  width: 100%;
-}
-
-input[type=checkbox]:checked ~ figure { width: 100% }
-
-input[type=checkbox]:checked ~ [for="read_more2"] span:first-of-type {
-  display: none;
-  visibility: hidden;
-}
-
-input[type=checkbox]:checked ~ [for="read_more2"] span:last-of-type {
-  display: block;
-  visibility: visible;
-}
-
 
