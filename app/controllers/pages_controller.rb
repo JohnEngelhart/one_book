@@ -11,16 +11,28 @@ class PagesController < ApplicationController
       @instagramHash = RestClient.get @instagramURL
       @instagramID = JSON.parse(@instagramHash)['data'].map { |result| result['id'] }
       @myname = @instagramID[0].to_s
+      begin
       @instagram = Instagram.user_recent_media(@myname, {:count => 10})
+      rescue Instagram::BadRequest
+      end
       puts @instagram
       return @instagram
-      redirect_to("")
+      #redirect_to("")
     end
+
+    if(request.env['omniauth.auth'])
+      @facebookuser = Facebookuser.koala(request.env['omniauth.auth']['credentials'])
+      @feed = Feeds.koala(request.env['omniauth.auth']['credentials'])
+      #redirect_to("back")
+    end
+
   end
 
   def instagramHelper
 
   end
+
+
 
   protect_from_forgery with: :exception
 
