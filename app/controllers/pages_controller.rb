@@ -17,7 +17,7 @@ class PagesController < ApplicationController
       end
       puts @instagram
       return @instagram
-      #redirect_to("")
+      redirect_to("")
     end
 
     if(request.env['omniauth.auth'])
